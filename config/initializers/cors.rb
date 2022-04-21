@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins "localhost:8080", "heroic-arithmetic-cf903c.netlify.app", "6260af7f9e43525def4e958e--heroic-arithmetic-cf903c.netlify.app"
+    origins "localhost:8080", "heroic-arithmetic-cf903c.netlify.app", "6260af7f9e43525def4e958e--heroic-arithmetic-cf903c.netlify.app", "*"
 
     resource "*",
       headers: :any,
