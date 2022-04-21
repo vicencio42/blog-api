@@ -1,3 +1,5 @@
+require "faker"
+
 User.create!(name: "Peter", email: "peter@test.com", password: "password")
 User.create!(name: "Test", email: "test@test.com", password: "password")
 
