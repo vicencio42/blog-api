@@ -22,10 +22,21 @@ RSpec.describe "Posts", type: :request do
   describe "Get /posts:id" do
     it "returns a specific post" do
 
+      user = User.create!(name: "Peter", email: "peter@test.com", password_digest: "$2a$12$px.9BcEqsHOXUO5Rat4D.eYw3pN6Eaz9PdF3QYvZLjDVUp5gyQHKC")
 
-      get "/posts:id"
+      Post.create!({user_id: user.id, title: "Stand-alone multi-tasking open architecture", body: "Bushwick mustache 8-bit schlitz lomo. Pour-over vice phlogiston chia hashtag authentic. Hoodie intelligentsia pitchfork single-origin coffee wolf portland. Pork belly cliche keffiyeh. Church-key organic literally loko. Kale chips wolf 8-bit. Slow-carb chartreuse pabst beard mumblecore.", image: "https://i.picsum.photos/id/302/200/300.jpg?hmac=b5e6gUSooYpWB3rLAPrDpnm8PsPb84p_NXRwD-DK-1I"})
+
+
+
+      get "/posts/#{post.id}"
       posts = JSON.parse(response.body)
+
       expect(response).to have_http_status(200)
+      expect(post["title"]).to eq("Stand-alone multi-tasking open architecture")
+      expect(post["body"]).to eq("Bushwick mustache 8-bit schlitz lomo. Pour-over vice phlogiston chia hashtag authentic. Hoodie intelligentsia pitchfork single-origin coffee wolf portland. Pork belly cliche keffiyeh. Church-key organic literally loko. Kale chips wolf 8-bit. Slow-carb chartreuse pabst beard mumblecore.")
+      expect(post["image"]).to eq("https://i.picsum.photos/id/302/200/300.jpg?hmac=b5e6gUSooYpWB3rLAPrDpnm8PsPb84p_NXRwD-DK-1I")
+    end
+  end
 
 
 end
