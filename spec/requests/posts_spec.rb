@@ -18,4 +18,6 @@ RSpec.describe "Posts", type: :request do
       expect(posts.length).to eq(2)
     end
   end
+
+  describe ""
 end
