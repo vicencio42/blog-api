@@ -19,5 +19,13 @@ RSpec.describe "Posts", type: :request do
     end
   end
 
-  describe ""
+  describe "Get /posts:id" do
+    it "returns a specific post" do
+
+
+      get "/posts:id"
+      posts = JSON.parse(response.body)
+      expect(response).to have_http_status(200)
+
+
 end
